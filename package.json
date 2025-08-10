@@ -1,0 +1,51 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "AIDE-data-converter",
+  "main": "src/server.ts",
+  "scripts": {
+    "create-resources-dir": "mkdirp build/resources/input && mkdirp build/resources/output",
+    "copy-files": "copyfiles -u 1 src/**/*.json build/",
+    "build": "rm -rf build/ && tsc && yarn copy-files && npm run create-resources-dir",
+    "start": "node build/server.js",
+    "start:prod": "NODE_ENV=production node build/server.js",
+    "seed": "node build/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mapbox/geojson-merge": "^1.1.1",
+    "axios": "^1.5.1",
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "download": "^8.0.0",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "joi": "^17.8.3",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.21",
+    "odata-query": "^7.0.4",
+    "papaparse": "^5.4.1",
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1",
+    "@turf/turf": "^6.5.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@turf/turf": "^6.5.0",
+    "@types/cors": "^2.8.14",
+    "@types/download": "^8.0.2",
+    "@types/express": "^4.17.17",
+    "@types/fs-extra": "^11.0.2",
+    "@types/lodash": "^4.14.192",
+    "@types/multer": "^1.4.7",
+    "@types/papaparse": "^5.3.9",
+    "@types/xlsx": "^0.0.36",
+    "copyfiles": "^2.4.1",
+    "mkdirp": "^3.0.1",
+    "typescript": "^4.9.5",
+    "@types/turf": "^3.5.32"
+  }
+}
